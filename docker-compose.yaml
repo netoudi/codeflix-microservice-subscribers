@@ -6,6 +6,6 @@ services:
     container_name: codeflix-subscribers-app
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - .:/home/python/app
     ports:
       - "8000:8000"
