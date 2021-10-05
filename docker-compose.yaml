@@ -4,7 +4,7 @@ services:
   app:
     build: .
     container_name: codeflix-subscribers-app
-    command: python manage.py runserver 0.0.0.0:8000
+    command: /bin/sh -c 'pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000'
     volumes:
       - .:/home/python/app
     ports:

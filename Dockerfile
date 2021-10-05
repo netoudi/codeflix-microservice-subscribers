@@ -1,6 +1,10 @@
 # syntax=docker/dockerfile:1
 FROM python:3.9.7-alpine3.14
 
+ENV MY_VENV=/home/python/app/venv
+ENV PIP_TARGET=${MY_VENV}
+ENV PYTHONPATH=${MY_VENV}
+ENV PATH=${PATH}:${MY_VENV}/bin
 ENV PYTHONUNBUFFERED=1
 
 RUN apk update && \
@@ -15,5 +19,3 @@ RUN mkdir /home/python/app
 WORKDIR /home/python/app
 
 COPY requirements.txt /home/python/app
-
-RUN pip install -r requirements.txt
